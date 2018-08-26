@@ -1,0 +1,24 @@
+$mainFont: 'Raleway', sans-serif;
+
+
+body {
+    display: block;
+    margin: 0 auto;
+    font-family: $mainFont;
+    list-style: none;
+    text-decoration: none;
+    background-color: $bgColor;
+}
+
+h2 {
+    font-family: $mainFont;
+    color: $textColor;
+    margin: 20px auto;
+    width: 220px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: $textColor;
+}

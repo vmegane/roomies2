@@ -1,0 +1,17 @@
+.main-header {
+    height: auto;
+    background-color: $headerColor;
+    color: $textColor;
+    text-align: center;
+    h1 {
+        padding: 20px 20px;  
+    }
+}
+
+.logged-in-user-greeting  {
+    background-color: $bgColor;
+    text-align: center;
+    color: $textColor;
+    font-size: 0.8em;
+}
+
