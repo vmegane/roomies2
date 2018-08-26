@@ -8,12 +8,26 @@ class SignupWrapper extends React.Component {
             email: '',
             password: '',
             userID: '',
-            name: ''
+            name: '',
+            home: '',
+            homes: {}
         }
         this.props.manageSignup(true)
     }
 
-    
+    componentDidMount() {
+        if (this.state.currentUser!={}) {
+            fetch(`https://roomies-80535.firebaseio.com/homes.json`)
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response)
+
+                this.setState({
+                    homes: response
+                })
+            })
+        } 
+    }
     fillName = (event) => {
         this.setState({
             name: event.target.value
@@ -30,6 +44,12 @@ class SignupWrapper extends React.Component {
         })
     }
 
+    fillPickhome = (event) => {
+        this.setState({
+            home: event.target.value
+        })
+    }
+
     completeSignup = (event) => {
         event.preventDefault();
         const email = this.state.email;
@@ -37,7 +57,7 @@ class SignupWrapper extends React.Component {
         const auth = firebase.auth();
         const user = auth.currentUser;
         console.log('1', user)
-        let newUser; 
+        let newUser, newRoommate; 
         const promise = auth.createUserWithEmailAndPassword(email, password);
         promise
             .then((r) => {
@@ -53,18 +73,27 @@ class SignupWrapper extends React.Component {
                     newUser = {
                     userID: this.state.userID,
                     name: this.state.name,
-                    email: this.state.email
+                    email: this.state.email,
+                    home: this.state.home
                 };
                 console.log('created', newUser);
 
             })
             .then(() => {
-                fetch(`https://roomies-80535.firebaseio.com/users/${this.state.userID}.json`,
+                console.log('add user to home');
+                    newRoommate = this.state.userID
+                console.log('added', newRoommate);
+
+            })
+            .then(() => {
+                if (this.state.home!=='') {
+                    fetch(`https://roomies-80535.firebaseio.com/homes/${this.state.home}/roommates.json`,
                     {
-                        method: "PUT",
-                        body: JSON.stringify(newUser)
+                        method: "POST",
+                        body: JSON.stringify(newRoommate)
                     }
                 )
+                }                
             })
             .then( ()=> {
                 console.log('switch to logged in');
@@ -75,16 +104,32 @@ class SignupWrapper extends React.Component {
 
 
     render() {
+     
+        let formOptions = [];
+        let objectKeys = Object.keys(this.state.homes);
+        for (var key in this.state.homes){
+            formOptions.push(this.state.homes[key]);
+        }
+
         return (
             <div className="page-center-height">
                 <h2>Create Account</h2>
+                
                 <form className="form">
                     
                         <input type="text" value={this.state.name} placeholder="type your name" onChange={this.fillName} />
                     
                         <input type="email" value={this.state.email} placeholder="type your email" onChange={this.fillEmail} />
                         <input type="password" value={this.state.password} placeholder="type your password" onChange={this.fillPassword} />
-                    
+                        Pick your home:
+                        
+                        <select value={this.state.home} placeholder="" onChange={this.fillPickhome}>  
+                        <option value=""> </option> 
+                            {formOptions.map((elem, index) => {
+                                return <option key={`option-${index}`} value={objectKeys[index]}>{elem.name}</option>
+                            })}
+                        </select>
+
                     <input type="submit" value="sign up" onClick={this.completeSignup} />
                 </form>
             </div>

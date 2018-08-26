@@ -29,11 +29,11 @@ class AppWrapper extends React.Component {
         
     }
     
-    componentWillMount() {
-        this.watchAuthState();
-    }
+    // componentWillMount() {
+    //     this.watchAuthState();
+    // }
 
-    componentDidUpdate() {
+    componentWillMount() {
         if (this.state.currentUser!={}) {
             fetch(`https://roomies-80535.firebaseio.com/users/${this.state.userId}.json`)
             .then((response) => response.json())
@@ -58,24 +58,24 @@ class AppWrapper extends React.Component {
         })
     }
 
-    watchAuthState() {
-        firebase.auth().onAuthStateChanged((firebaseUser) => {
-            if (firebaseUser) {
-                this.setState({
-                    currentUser: firebaseUser,
-                    loggedin: true,
-                    userId: firebaseUser.uid
-                })
-                console.log('watcher: user loggedin: ', firebaseUser.uid)
-            } else {
-                this.setState({
-                    currentUser: null,
-                    loggedin: false
-                })
-                console.log('not logged in')
-            }
-        })
-    }
+    // watchAuthState() {
+    //     firebase.auth().onAuthStateChanged((firebaseUser) => {
+    //         if (firebaseUser) {
+    //             this.setState({
+    //                 currentUser: firebaseUser,
+    //                 loggedin: true,
+    //                 userId: firebaseUser.uid
+    //             })
+    //             console.log('watcher: user loggedin: ', firebaseUser.uid)
+    //         } else {
+    //             this.setState({
+    //                 currentUser: null,
+    //                 loggedin: false
+    //             })
+    //             console.log('not logged in')
+    //         }
+    //     })
+    // }
 
     render() {
         if (this.state.loggedin === true) {
@@ -86,12 +86,12 @@ class AppWrapper extends React.Component {
                         <LoginWrapper
                             manageLogin={this.manageLogin}
                             isLoggedIn={this.state.loggedin}
-                            userName={this.state.userData.name}
+                            // userName={this.state.userData.name}
                         />
                         <Nav />
                         <Switch>
                             <Route exact path='/messages' component={Messages} />
-                            <Route path='/user' component={User} />
+                            <Route exact path='/' component={User} />
                             <Route path='/createhome' render={() =>  <CreateHome
                                userId={this.state.currentUser.uid}
                             /> }/>
@@ -112,9 +112,10 @@ class AppWrapper extends React.Component {
                                 <Route exact path='/' render={() =>  <LoginWrapper
                                     manageLogin={this.manageLogin}
                                     isLoggedIn={this.state.loggedin}
+                                    // userName={this.state.userData.name}
                             /> }/>
                                 <Route path='/signup' render={() => <SignupWrapper 
-                                manageLoggin={this.manageLogin}
+                                manageLogin={this.manageLogin}
                                 manageSignup={this.manageSignup}
                                 />} />
 </div>
