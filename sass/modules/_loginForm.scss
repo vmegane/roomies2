@@ -1,3 +1,10 @@
+.login-form-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  //  align-items: center;
+  //  height: 77%;
+}
 .form {
     display: flex;
     flex-direction: column;
@@ -10,9 +17,9 @@
         border: 1px solid lightslategrey;
         background-color: white;
         font-family: 'Raleway', sans-serif;
-        color: $bgColor;
+        color: $textColor;
         &::placeholder {
-            color: $bgColor;
+            color: $textColor;
             text-align: center;
             font-family: 'Raleway', sans-serif;
         }
@@ -20,7 +27,7 @@
             font-size: 18px;
             border: 1px solid $textColor;
             &::placeholder {
-                color: $bgColor;
+                color: $textColor;
                 text-align: center;
                 font-family: 'Raleway', sans-serif;
                 
@@ -31,8 +38,8 @@
 
 input[type=submit] {
     padding: 10px;
-    background-color: $bgColor;
-    color: $textColor;
+    background-color: $buttonColor;
+    color: white;
     font-family: "Raleway", sans-serif;
     font-size: 1.1em;
     transition: all .2s ease-in-out;

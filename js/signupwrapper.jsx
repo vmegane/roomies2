@@ -76,7 +76,7 @@ class SignupWrapper extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="page-center-height">
                 <h2>Create Account</h2>
                 <form className="form">
                     

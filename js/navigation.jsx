@@ -32,12 +32,12 @@ class Nav extends React.Component {
                 <div className={menuShowHide} onClick={this.handleClick}>
                     <ul>
                         <li>
-                            <Link to="/latest">Latest</Link>
+                            <Link to="/home">Your home</Link>
                         </li>
                         <li>
-                            <Link to="/fridge">Frigde</Link>
+                            <Link to="/messages">Your messages</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/home">Your home</Link>
                         </li>
                         <li>
@@ -45,7 +45,7 @@ class Nav extends React.Component {
                         </li>
                         <li>
                             <Link to="/help">Help</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>

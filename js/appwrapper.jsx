@@ -81,7 +81,7 @@ class AppWrapper extends React.Component {
         if (this.state.loggedin === true) {
             return (
                 <HashRouter>
-                    <div>
+                    <div className="main-wrapper">
                         <Header />
                         <LoginWrapper
                             manageLogin={this.manageLogin}
@@ -91,7 +91,6 @@ class AppWrapper extends React.Component {
                         <Nav />
                         <Switch>
                             <Route exact path='/messages' component={Messages} />
-                            <Route path='/home' component={Home} />
                             <Route path='/user' component={User} />
                             <Route path='/createhome' render={() =>  <CreateHome
                                userId={this.state.currentUser.uid}
@@ -104,10 +103,10 @@ class AppWrapper extends React.Component {
         } else {
             return (
                 <HashRouter>
-                    <div>
+                    <div className="main-wrapper">
                         <Header />
                         <Switch>
-<div>
+<div className="page-center-height">
 { this.state.signupopen===false && <div> <h2>Sign in <span> <Link to='/signup'> or create account</Link></span></h2>
                         </div>}
                                 <Route exact path='/' render={() =>  <LoginWrapper

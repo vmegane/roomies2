@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class LoginWrapper extends React.Component {
 
@@ -9,7 +9,7 @@ class LoginWrapper extends React.Component {
         this.state = {
             email: '@',
             password: ''
-        }        
+        }
     }
     fillEmail = (event) => {
         this.setState({
@@ -35,7 +35,7 @@ class LoginWrapper extends React.Component {
             .catch(error => console.log(error.message))
     }
 
-   
+
     logout = (event) => {
         event.preventDefault();
         console.log('clicked logout', this.state.email)
@@ -49,19 +49,21 @@ class LoginWrapper extends React.Component {
         });
         this.props.manageLogin(false);
     }
-    
+
     render() {
         return (
-            <div className="logged-in-user-greeting">                
-                { this.props.isLoggedIn===true && <h2>{this.props.userName} :)</h2> }
+            <div className="login-form-wrapper page-center-height">
+                <div className="logged-in-user-greeting">
+                    {this.props.isLoggedIn === true && <h2>{this.props.userName} :)</h2>}
 
-                <form className="form"> 
-                { this.props.isLoggedIn===false && <input type="email" placeholder="type your email" value={this.props.email} onChange={this.fillEmail} /> }
-                { this.props.isLoggedIn===false && <input type="password" placeholder="type your password" value={this.props.password} onChange={this.fillPassword} /> } 
-                { this.props.isLoggedIn===false && <input type="submit" value="login" onClick={this.login} />}  
-                { this.props.isLoggedIn===true && <input type="submit" value="log out" onClick={this.logout} /> }
-                </form>
+                    <form className="form">
+                        {this.props.isLoggedIn === false && <input type="email" placeholder="type your email" value={this.props.email} onChange={this.fillEmail} />}
+                        {this.props.isLoggedIn === false && <input type="password" placeholder="type your password" value={this.props.password} onChange={this.fillPassword} />}
+                        {this.props.isLoggedIn === false && <input type="submit" value="login" onClick={this.login} />}
+                        {this.props.isLoggedIn === true && <input type="submit" value="log out" onClick={this.logout} />}
+                    </form>
 
+                </div>
             </div>
         )
     }
