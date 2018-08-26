@@ -10,7 +10,6 @@ import {
 import LoginWrapper from './loginwrapper.jsx';
 import Nav from './navigation.jsx';
 import Messages from './messages.jsx';
-import Home from './home.jsx';
 import Header from './header.jsx';
 import Footer from './footer.jsx';
 import SignupWrapper from './signupwrapper.jsx';
