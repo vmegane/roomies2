@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    HashRouter,
+    Router,
     Route,
     Link,
     Switch,
@@ -14,10 +14,11 @@ import Header from './header.jsx';
 import Footer from './footer.jsx';
 import SignupWrapper from './signupwrapper.jsx';
 import Homes from './homes.jsx';
+import Home from './home.jsx';
 import CreateHome from './createhome.jsx';
+
 import { createBrowserHistory } from 'history';
 import Redirect from 'react-router/Redirect';
-import { browserHistory } from "react-router";
 
 const history = createBrowserHistory();
 
@@ -34,9 +35,16 @@ class AppWrapper extends React.Component {
 
     }
 
-    // componentWillMount() {
-    //     this.watchAuthState();
-    // }
+    componentWillMount() {
+        fetch(`https://roomies-80535.firebaseio.com/homes.json`)
+        .then((response) => response.json())
+        .then((response) => {
+            console.log(response)
+            this.setState({
+                homeData: response
+            })
+        })
+}
 
     getUserData() {
         let userData;
@@ -47,21 +55,9 @@ class AppWrapper extends React.Component {
                 this.setState({ userData: userData });
                 console.log(userData)
             })
-            // .then( ()=> {
-            //     this.getHomeData()
-            // })
+          
 }
-    //             .then((response) => {
-    //     this.setState({
-    //         userData: response
-    //     }, (response) => {
-    //             console.log('response1', response);
-    //             if (this.state.userData.home) {
-    //                 console.log('if')
-    //                 fetch(`https://roomies-80535.firebaseio.com/homes/${this.state.userData.home}.json`)
-    //         }
-    //     })
-    // })
+   
 
 
 
@@ -105,7 +101,7 @@ class AppWrapper extends React.Component {
     render() {
         if (this.state.loggedin === true) {
             return (
-                <HashRouter  history={history}>
+                <Router  history={history}>
                     <div className="main-wrapper">
                         <Header />
                         {/* <LoginWrapper
@@ -119,22 +115,25 @@ class AppWrapper extends React.Component {
                             <Route exact path='/messages' component={Messages} />
                             <Route exact path='/' render={() => <Homes
                                 user={this.state.userData}
+                                homeData={this.state.homeData}
+                                history={history}
                             />} />
                             <Route path='/createhome' render={() => <CreateHome
                                 userId={this.state.currentUser.uid}
                             />} />
                             <Route path='/home/:home_id' render={() => <Home
                                 userId={this.state.currentUser.uid}
+                                homeData={this.state.homeData}
                             />} />
                         </Switch>
                         </div>
                         <Footer />
                     </div>
-                </HashRouter>
+                </Router>
             )
         } else {
             return (
-                <HashRouter>
+                <Router history={history}>
                     <div className="main-wrapper">
                         <Header />
                         <Switch>
@@ -156,7 +155,7 @@ class AppWrapper extends React.Component {
                         </Switch>
                         <Footer />
                     </div>
-                </HashRouter>
+                </Router>
             )
 
         }

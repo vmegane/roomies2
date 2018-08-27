@@ -1,26 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom'
+import { browserHistory } from "react-router";
 
 class Homes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            homeData: {},
+            homeData: this.props.homeData,
             pickedHome: ''
         }
+        console.log('homes props', this.props)
     }
 
-  componentWillMount() {
-            fetch(`https://roomies-80535.firebaseio.com/homes.json`)
-            .then((response) => response.json())
-            .then((response) => {
-                console.log(response)
-                this.setState({
-                    homeData: response
-                })
-            })
-    }
+//   componentWillMount() {
+//             fetch(`https://roomies-80535.firebaseio.com/homes.json`)
+//             .then((response) => response.json())
+//             .then((response) => {
+//                 console.log(response)
+//                 this.setState({
+//                     homeData: response
+//                 })
+//             })
+//     }
 
     joinHome = (event) => {
         let homeId = event.target.dataset.id;
@@ -40,26 +42,12 @@ class Homes extends React.Component {
                     this.setState({
                         pickedHome: homeId
                     })
+                }).then(() => {
+                    this.props.history.push(`/home/${this.state.pickedHome}`)
                 })
     }
 
-    // getHomeData = (event) => {
-    //     event.preventDefault();
-    //     if (this.props.user.home!=='') {
-    //         console.log('if')
-    //         fetch(`https://roomies-80535.firebaseio.com/homes/${this.props.user.home}.json`)
-    //             .then((response) => {
-    //                 response.json()
-    //                 console.log('json', response)
-    //             })
-    //             .then((response) => {
-    //                 console.log('response2', response)
-    //                 this.setState({
-    //                     homeData: response
-    //                 })
-    //             })
-    //     }
-    //}
+
     render() {
          let homeNames = [];
         let objectKeys = Object.keys(this.state.homeData);
@@ -79,7 +67,7 @@ class Homes extends React.Component {
                 {homeNames.map((elem, index) => {
                     return <li key={`home-${index+1}`} >{elem} <br/>
                             <span>Roommates: 3</span>
-                            { this.state.pickedHome==='' && <input type="submit" data-id={`home${index+1}`} value="Join" className="button-join-home" onClick={this.joinHome}/>}  
+                         <input type="submit" data-id={`home${index+1}`} value="Join" className="button-join-home" onClick={this.joinHome}/> 
                                     </li>
                             })}
                 </ul>
