@@ -41,15 +41,18 @@
 }
 
 .burger-menu-icon {
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 51px;
     position: fixed;
     top: 0;
     left: 0;
-    background-image: url('../images/burger_menu_icon.png');
+    background-image: url('../images/roomies burger-04-05.png');
     background-repeat: no-repeat;
     background-size: cover;
     margin: 6px auto 0 auto;
+    // -webkit-box-shadow: 7px 6px 32px 19px rgba(255, 255, 255, 0.75);
+    // -moz-box-shadow: 7px 6px 32px 19px rgba(255, 255, 255,0.75);
+    // box-shadow: 7px 6px 32px 19px rgba(255, 255, 255,0.75);
     @keyframes bounce {
         0% {
           left: 5px;

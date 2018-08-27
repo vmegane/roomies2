@@ -10,6 +10,7 @@ class LoginWrapper extends React.Component {
             email: '@',
             password: ''
         }
+        console.log('login wrapper', this.props)
     }
     fillEmail = (event) => {
         this.setState({
@@ -24,45 +25,45 @@ class LoginWrapper extends React.Component {
 
     login = (event) => {
         event.preventDefault();
+        console.log('event')
         const email = this.state.email;
         const password = this.state.password;
+        console.log('state', this.state)
+
         const promise = firebase.auth().signInWithEmailAndPassword(email, password)
         promise
-            .then(() => {
+            .then((resp) => {
+                console.log('resp',resp)
                 this.props.manageLogin(true);
-            }
-            )
+            })
             .catch(error => console.log(error.message))
     }
 
 
-    logout = (event) => {
-        event.preventDefault();
-        console.log('clicked logout', this.state.email)
-        firebase.auth().signOut;
-        this.setState({
-            email: '@',
-            password: '',
-            userID: '',
-            loggedin: false,
-            currentUser: null
-        });
-        this.props.manageLogin(false);
-    }
+    // logout = (event) => {
+    //     event.preventDefault();
+    //     console.log('clicked logout', this.state.email)
+    //     firebase.auth().signOut;
+    //     this.setState({
+    //         email: '@',
+    //         password: '',
+    //         userID: '',
+    //         loggedin: false,
+    //         currentUser: null
+    //     });
+    //     this.props.manageLogin(false);
+    // }
 
     render() {
         return (
-            <div className="login-form-wrapper page-center-height">
-          
-            <div className="logged-in-user-greeting">     
-                <form className="form"> 
-                { this.props.isLoggedIn===false && <input type="email" placeholder="type your email" value={this.props.email} onChange={this.fillEmail} /> }
-                { this.props.isLoggedIn===false && <input type="password" placeholder="type your password" value={this.props.password} onChange={this.fillPassword} /> } 
-                { this.props.isLoggedIn===false && <input type="submit" value="login" onClick={this.login} />}  
-                { this.props.isLoggedIn===true && <input type="submit" value="log out" onClick={this.logout} /> }
+            <div className="login-form-wrapper">
+
+                <form className="form">
+                    <input type="email" placeholder="type your email" value={this.props.email} onChange={this.fillEmail} />
+                    <input type="password" placeholder="type your password" value={this.props.password} onChange={this.fillPassword} />
+                    <input type="submit" value="login" onClick={this.login} />
                 </form>
 
-                </div>
             </div>
         )
     }

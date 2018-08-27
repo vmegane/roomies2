@@ -1,5 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+    HashRouter,
+    Route,
+    Link,
+    Switch,
+    NavLink,
+} from 'react-router-dom';
+import {browserHistory} from 'react-router';
+import { createBrowserHistory } from 'history';
 
 class SignupWrapper extends React.Component {
     constructor(props) {
@@ -15,19 +24,7 @@ class SignupWrapper extends React.Component {
         this.props.manageSignup(true)
     }
 
-    componentDidMount() {
-        if (this.state.currentUser!={}) {
-            fetch(`https://roomies-80535.firebaseio.com/homes.json`)
-            .then((response) => response.json())
-            .then((response) => {
-                console.log(response)
 
-                this.setState({
-                    homes: response
-                })
-            })
-        } 
-    }
     fillName = (event) => {
         this.setState({
             name: event.target.value
@@ -44,11 +41,11 @@ class SignupWrapper extends React.Component {
         })
     }
 
-    fillPickhome = (event) => {
-        this.setState({
-            home: event.target.value
-        })
-    }
+    // fillPickhome = (event) => {
+    //     this.setState({
+    //         home: event.target.value
+    //     })
+    // }
 
     completeSignup = (event) => {
         event.preventDefault();
@@ -79,25 +76,33 @@ class SignupWrapper extends React.Component {
                 console.log('created', newUser);
 
             })
-            .then(() => {
-                console.log('add user to home');
-                    newRoommate = this.state.userID
-                console.log('added', newRoommate);
-
-            })
-            .then(() => {
-                if (this.state.home!=='') {
-                    fetch(`https://roomies-80535.firebaseio.com/homes/${this.state.home}/roommates.json`,
+            .then(()=> {
+                fetch(`https://roomies-80535.firebaseio.com/users/${this.state.userID}.json`,
                     {
-                        method: "POST",
-                        body: JSON.stringify(newRoommate)
-                    }
-                )
-                }                
-            })
+                        method: "PUT",
+                        body: JSON.stringify(newUser)
+                    })
+                })
+            // .then(() => {
+            //     console.log('add user to home');
+            //         newRoommate = this.state.userID
+            //     console.log('added', newRoommate);
+
+            // })
+            // .then(() => {
+            //     if (this.state.home!=='') {
+            //         fetch(`https://roomies-80535.firebaseio.com/homes/${this.state.home}/roommates.json`,
+            //         {
+            //             method: "POST",
+            //             body: JSON.stringify(newRoommate)
+            //         }
+            //     )
+            //     }                
+            // })
             .then( ()=> {
                 console.log('switch to logged in');
                 this.props.manageLogin(true);
+                this.props.history.push('/homes') 
             })
             .catch(error => console.log(error.message))
      }
@@ -105,11 +110,11 @@ class SignupWrapper extends React.Component {
 
     render() {
      
-        let formOptions = [];
-        let objectKeys = Object.keys(this.state.homes);
-        for (var key in this.state.homes){
-            formOptions.push(this.state.homes[key]);
-        }
+        // let formOptions = [];
+        // let objectKeys = Object.keys(this.state.homes);
+        // for (var key in this.state.homes){
+        //     formOptions.push(this.state.homes[key]);
+        // }
 
         return (
             <div className="page-center-height">
@@ -121,14 +126,14 @@ class SignupWrapper extends React.Component {
                     
                         <input type="email" value={this.state.email} placeholder="type your email" onChange={this.fillEmail} />
                         <input type="password" value={this.state.password} placeholder="type your password" onChange={this.fillPassword} />
-                        Pick your home:
+                        {/* Pick your home:
                         
                         <select value={this.state.home} placeholder="" onChange={this.fillPickhome}>  
                         <option value=""> </option> 
                             {formOptions.map((elem, index) => {
                                 return <option key={`option-${index}`} value={objectKeys[index]}>{elem.name}</option>
                             })}
-                        </select>
+                        </select> */}
 
                     <input type="submit" value="sign up" onClick={this.completeSignup} />
                 </form>

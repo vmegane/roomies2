@@ -1,3 +1,13 @@
+.login-page-wrapper {
+    height: 90%;
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .login-form-wrapper {
     display: flex;
     justify-content: center;

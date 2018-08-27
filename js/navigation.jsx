@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom'
+import LogoutWrapper from './logoutwrapper.jsx';
 
 class Nav extends React.Component {
     constructor(props) {
@@ -46,6 +47,7 @@ class Nav extends React.Component {
                         <li>
                             <Link to="/help">Help</Link>
                         </li> */}
+                        <LogoutWrapper manageLogin={this.props.manageLogin}/>
                     </ul>
                 </div>
             </div>

@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class User extends React.Component {
+class Home extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props)
     }
     render() {
         return (
             <div>
-                <h2>Profile</h2>
+                <h2>Home :)</h2>
+                {this.props.match.params.home_id}
             </div>
         )
     }
 }
 
-export default User;
+export default Home;
