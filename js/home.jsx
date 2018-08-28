@@ -11,23 +11,27 @@ class Home extends React.Component {
             openMessageForm: false,
             newMessage: '',
             allMessages: []
-            }
+        }
     }
 
-    // componentDidMount() {
-    //     console.log('component did mount', this.props)
-    //     let homeId = this.state.home_id; //key
-    //     let homeInfo = this.state.homeData; // object with all homes
-    //     let currentHome = homeInfo[homeId]
-    //     let allMessagesList =[]
-    //     for (let key in currentHome.messages) {
-    //         allMessagesList.push(currentHome.messages[key])
-    //     }
-    //     this.setState({
-    //         allMessages: allMessagesList
-    //     })
-    //     console.log(this.state.allMessages)
-    // }
+    componentDidMount() {
+        console.log('component did mount', this.props.homeData)
+        let homeId = this.state.home_id; //key
+        let homeInfo = this.state.homeData; // object with all homes
+        let currentHome = homeInfo[homeId]
+        let objectKeys = Object.keys(currentHome.messages);
+        console.log('current home messages', currentHome.messages)
+        let allMessagesList = []
+        for (let key in currentHome.messages) {
+            allMessagesList.push(currentHome.messages[key])
+            console.log('key', currentHome.messages[key])
+        }
+        console.log('all msg list', allMessagesList);
+        this.setState({
+            allMessages: allMessagesList
+        })
+        console.log(this.state.allMessages)
+    }
 
     openAddMessage = (event) => {
         event.preventDefault();
@@ -50,48 +54,53 @@ class Home extends React.Component {
             timestamp: new Date().toUTCString()
         }
         fetch(`https://roomies-80535.firebaseio.com/homes/${this.state.home_id}/messages.json`,
-        {
-            method: "POST",
-            body: JSON.stringify(newMessage)
-        })
-        .then(() => {
-            fetch(`https://roomies-80535.firebaseio.com/homes/${this.state.home_id}/messages.json`,
-        {
-            method: "GET"
-        })
-        .then((response) => response.json())
-        .then((response) => {
-            this.setState({
-                allMessages: response
+            {
+                method: "POST",
+                body: JSON.stringify(newMessage)
+            }).then(() => {
+                this.setState({
+                    allMessages: [newMessage, ...this.state.allMessages]
+                })
             })
-            console.log('fetch get', response)
-        })
-        })
+
+            // .then(() => {
+            //     fetch(`https://roomies-80535.firebaseio.com/homes/${this.state.home_id}/messages.json`,
+            //         {
+            //             method: "GET"
+            //         })
+            //         .then((response) => response.json())
+            //         .then((response) => {
+            //             this.setState({
+            //                 allMessages: response
+            //             })
+            //             console.log('fetch get', response)
+            //         })
+            // })
     }
 
     render() {
-        
+
 
         // console.log('msgs', currentHome.messages)
         // console.log('all msgs', allMessages)
         return (
             <div className="homes-content-wrapper">
-                {/* <h2> {homeInfo[homeId].name}</h2> */}
+                <h2> {this.state.homeData[this.state.home_id].name}</h2>
                 <h3>Messages</h3>
-                
-                    {this.state.openMessageForm===false && <button onClick={this.openAddMessage}> Add message </button>}
-                    {this.state.openMessageForm && <form>      
-                        <textarea value={this.state.newMessage} onChange={this.fillNewMessage}/>
-                        <input type="submit" value="Post" onClick={this.postMessage}/>
-                        </form> }
-                
+
+                {this.state.openMessageForm === false && <button onClick={this.openAddMessage}> Add message </button>}
+                {this.state.openMessageForm && <form>
+                    <textarea value={this.state.newMessage} onChange={this.fillNewMessage} />
+                    <input type="submit" value="Post" onClick={this.postMessage} />
+                </form>}
+
                 <ul>
-                    {/* {allMessages.map( (elem, index) => {
+                    {this.state.allMessages.map( (elem, index) => {
                         return <li key={`message-${index}`}><span>{elem.name}</span><p>{elem.message}</p><span>
                             {elem.timestamp}</span></li>
-                    })}   */}
+                    })}  
                 </ul>
-                          </div>
+            </div>
         )
     }
 }
