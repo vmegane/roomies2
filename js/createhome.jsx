@@ -27,10 +27,11 @@ class CreateHome extends React.Component {
     handleClick = (e) => {
         e.preventDefault();
         const newHome = {
-            homename: this.state.homename,
-            roomies: [this.state.user]
+            name: this.state.homename,
+            roommates: this.state.user,
+            messages: {}
         }
-        fetch(`https://roomies-80535.firebaseio.com/homes/home-${this.state.numberOfHomes + 1}.json`,
+        fetch(`https://roomies-80535.firebaseio.com/homes/home${this.state.numberOfHomes + 1}.json`,
             {
                 method: "PUT",
                 body: JSON.stringify(newHome)
@@ -38,36 +39,38 @@ class CreateHome extends React.Component {
         )
             .then(() => {
                 this.setState({
-                    homeid: `home-${this.state.numberOfHomes + 1}`
+                    homeid: `home${this.state.numberOfHomes + 1}`
                 })
             })
             .then(() => {
                 const updatedUser = {
                     home: this.state.homeid
                 }
-
                 fetch(`https://roomies-80535.firebaseio.com/users/${this.state.user}.json`,
                     {
                         method: "PATCH",
                         body: JSON.stringify(updatedUser)
                     })
                 })
+            // .then(() => {
+            //     console.log('update data', this.props)
+            //    this.props.updateAllData()
+            // })
+            .then(() => {
+                this.props.history.push(`/homes`)
+            })
     }
 
     render() {
 
         return (
-            <div>
+            <div className="homes-content-wrapper">
                 <h2>Creating your home</h2>
                 <form id="form-create-home">
                     {this.state.homeid === '' && <p>Your home name</p> }
                     {this.state.homeid === '' && <input value={this.state.homename} type="text" onChange={this.fillName} />} <br/>
                     {this.state.homeid === '' && <button onClick={this.handleClick}>Continue</button> }<br/>
-                    invite roomies (send the link below to your roommates)
-                    <div className="link">
-                        {this.state.homeid !== '' && <p>http://www.roomies.com/join/{this.state.homeid}</p>}
-                    </div>
-
+                    
                 </form>
             </div>
         )
