@@ -20,13 +20,16 @@ body {
 }
 
 .content-wrapper {
-    height: 90%;
+    height: 100%;
     width: 80%;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
     align-items: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+
 }
 
 h2 {

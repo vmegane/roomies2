@@ -28,7 +28,7 @@ class Home extends React.Component {
         }
         console.log('all msg list', allMessagesList);
         this.setState({
-            allMessages: allMessagesList
+            allMessages: allMessagesList.reverse()
         })
         console.log(this.state.allMessages)
     }
@@ -57,25 +57,26 @@ class Home extends React.Component {
             {
                 method: "POST",
                 body: JSON.stringify(newMessage)
-            }).then(() => {
+            })
+            .then(() => {
+                fetch(`https://roomies-80535.firebaseio.com/homes.json`,
+                    {
+                        method: "GET"
+                    })
+                    .then((response) => response.json())
+                    .then((response) => {
+                        this.setState({
+                            homeData: response
+                        })
+                    })
+            })
+            .then(() => {
                 this.setState({
                     allMessages: [newMessage, ...this.state.allMessages]
                 })
             })
 
-            // .then(() => {
-            //     fetch(`https://roomies-80535.firebaseio.com/homes/${this.state.home_id}/messages.json`,
-            //         {
-            //             method: "GET"
-            //         })
-            //         .then((response) => response.json())
-            //         .then((response) => {
-            //             this.setState({
-            //                 allMessages: response
-            //             })
-            //             console.log('fetch get', response)
-            //         })
-            // })
+           
     }
 
     render() {
