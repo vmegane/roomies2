@@ -10,19 +10,10 @@ class Homes extends React.Component {
             homeData: this.props.homeData,
             pickedHome: ''
         }
-        console.log('homes props', this.props)
+        //console.log('homes props', this.props)
     }
 
-//   componentWillMount() {
-//             fetch(`https://roomies-80535.firebaseio.com/homes.json`)
-//             .then((response) => response.json())
-//             .then((response) => {
-//                 console.log(response)
-//                 this.setState({
-//                     homeData: response
-//                 })
-//             })
-//     }
+
 
     joinHome = (event) => {
         let homeId = event.target.dataset.id;

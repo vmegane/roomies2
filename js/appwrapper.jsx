@@ -113,15 +113,19 @@ class AppWrapper extends React.Component {
                         <div className="content-wrapper">
                         <Switch>
                             <Route exact path='/messages' component={Messages} />
-                            <Route exact path='/' render={() => <Homes
+                            <Route exact path='/' render={props => <Homes
+                                {...props}
                                 user={this.state.userData}
                                 homeData={this.state.homeData}
                                 history={history}
                             />} />
-                            <Route path='/createhome' render={() => <CreateHome
+                            <Route path='/createhome' render={ props => <CreateHome
+                                {...props}
                                 userId={this.state.currentUser.uid}
                             />} />
-                            <Route path='/home/:home_id' render={() => <Home
+                            <Route path='/home/:home_id' render={ props => <Home
+                                {...props}
+                                user={this.state.userData}
                                 userId={this.state.currentUser.uid}
                                 homeData={this.state.homeData}
                             />} />
