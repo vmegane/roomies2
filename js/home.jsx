@@ -84,9 +84,11 @@ class Home extends React.Component {
 
         // console.log('msgs', currentHome.messages)
         // console.log('all msgs', allMessages)
+
+
         return (
             <div className="homes-content-wrapper">
-                <h2> {this.state.homeData[this.state.home_id].name}</h2>
+                {/* <h2> {this.state.homeData[this.state.home_id].name}</h2> */}
                 <h3>Messages</h3>
 
                 {this.state.openMessageForm === false && <button onClick={this.openAddMessage}> Add message </button>}

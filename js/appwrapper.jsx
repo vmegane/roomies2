@@ -45,6 +45,19 @@ class AppWrapper extends React.Component {
             })
         })
 }
+updateAllData = () => {
+    let homeData;
+    fetch(`https://roomies-80535.firebaseio.com/homes.json`)
+    .then((response) => response.json())
+    .then((response) => {
+        homeData = response;
+        console.log('updating all data',response)
+        this.setState({
+            homeData: homeData
+        })
+        console.log(this.state)
+    })
+}
 
     getUserData() {
         let userData;
@@ -58,12 +71,6 @@ class AppWrapper extends React.Component {
           
 }
    
-
-
-
-
-
-
     manageLogin = (loginstate) => {
         this.setState({
             loggedin: loginstate,
@@ -122,6 +129,8 @@ class AppWrapper extends React.Component {
                             <Route path='/createhome' render={ props => <CreateHome
                                 {...props}
                                 userId={this.state.currentUser.uid}
+                                updateAllData={this.updateAllData}
+                                history={history}
                             />} />
                             <Route path='/home/:home_id' render={ props => <Home
                                 {...props}
