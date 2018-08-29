@@ -61,8 +61,12 @@ background-color: $buttonColor;
 color: white;
 font-family: "Raleway", sans-serif;
 font-size: 0.8em;
-text-transform: uppercase;
+text-transform: uppercase; 
 transition: all .2s ease-in-out;
 border-radius: 5px;
 border: 1px solid lightslategrey;
+transition: all .2s ease-in-out;
+&:hover {
+    transform: scale(1.1);
+}
 }
