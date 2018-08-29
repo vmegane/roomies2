@@ -91,16 +91,19 @@ class Home extends React.Component {
                 {/* <h2> {this.state.homeData[this.state.home_id].name}</h2> */}
                 <h3>Messages</h3>
 
-                {this.state.openMessageForm === false && <button onClick={this.openAddMessage}> Add message </button>}
+                {this.state.openMessageForm === false && <button className="button" onClick={this.openAddMessage}> Add message </button>}
                 {this.state.openMessageForm && <form>
                     <textarea value={this.state.newMessage} onChange={this.fillNewMessage} />
-                    <input type="submit" value="Post" onClick={this.postMessage} />
+                    <input type="submit" value="Post" className="button" onClick={this.postMessage} />
                 </form>}
 
                 <ul>
                     {this.state.allMessages.map( (elem, index) => {
-                        return <li key={`message-${index}`}><span>{elem.name}</span><p>{elem.message}</p><span>
-                            {elem.timestamp}</span></li>
+                        return <li className="message-text" key={`message-${index}`}>
+                                    <span className="message-author">{elem.name}</span>
+                                    <p>{elem.message}</p>
+                                    <span className="message-timestamp">{elem.timestamp}</span>
+                                </li>
                     })}  
                 </ul>
             </div>

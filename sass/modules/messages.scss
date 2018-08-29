@@ -1,0 +1,27 @@
+// .add-message-button {
+//     padding: 10px;
+//     margin: 17px 0 17px 0;
+//     background-color: $buttonColor;
+//     color: white;
+//     font-family: "Raleway", sans-serif;
+//     font-size: 1.1em;
+//     transition: all .2s ease-in-out;
+//     border-radius: 5px;
+//     border: 1px solid lightslategrey;
+// }
+
+.message-text {
+    margin: 15px 0 15px 0;
+        p {
+        color: $buttonColor;
+        margin: 3px 0 3px 0;
+        }
+}
+
+.message-author {
+    font-size: 0.8em;
+}
+
+.message-timestamp {
+    font-size: 0.6em;
+}

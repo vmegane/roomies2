@@ -10,19 +10,23 @@
     background-color: $buttonColor;
     color: white;
     font-family: "Raleway", sans-serif;
-    font-size: 1.1em;
+    font-size: 1em;
     transition: all .2s ease-in-out;
     border-radius: 5px;
         border: 1px solid lightslategrey;
     }
-    .button-create-home{
-        padding: 10px;
+    .button-create-home {
+    padding: 10px;
+    margin: 17px 0 17px 0;
     background-color: $buttonColor;
     color: white;
     font-family: "Raleway", sans-serif;
-    font-size: 1.1em;
+    font-size: 1em;
     transition: all .2s ease-in-out;
     border-radius: 5px;
-        border: 1px solid lightslategrey;
+    border: 1px solid lightslategrey;
+    }
+    h1 {
+        margin: 20px 0 20px 0;
     }
 }
