@@ -76,7 +76,7 @@ class Home extends React.Component {
                 })
             })
 
-           
+
     }
 
     render() {
@@ -89,22 +89,22 @@ class Home extends React.Component {
         return (
             <div className="homes-content-wrapper">
                 {/* <h2> {this.state.homeData[this.state.home_id].name}</h2> */}
-                <h3>Messages</h3>
+                <h2>Messages</h2>
 
                 {this.state.openMessageForm === false && <button className="button" onClick={this.openAddMessage}> add message </button>}
-                {this.state.openMessageForm && <form>
-                    <textarea value={this.state.newMessage} onChange={this.fillNewMessage} />
+                {this.state.openMessageForm && <form className="add-message-form">
+                    <textarea className="add-message-area" value={this.state.newMessage} onChange={this.fillNewMessage} />
                     <input type="submit" value="Post" className="button" onClick={this.postMessage} />
                 </form>}
 
                 <ul>
-                    {this.state.allMessages.map( (elem, index) => {
+                    {this.state.allMessages.map((elem, index) => {
                         return <li className="message-text" key={`message-${index}`}>
-                                    <span className="message-author">{elem.name}</span>
-                                    <p>{elem.message}</p>
-                                    <span className="message-timestamp">{elem.timestamp}</span>
-                                </li>
-                    })}  
+                            <span className="message-author">{elem.name}</span>
+                            <p>{elem.message}</p>
+                            <span className="message-timestamp">{elem.timestamp}</span>
+                        </li>
+                    })}
                 </ul>
             </div>
         )

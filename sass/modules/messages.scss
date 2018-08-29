@@ -9,7 +9,9 @@
 //     border-radius: 5px;
 //     border: 1px solid lightslategrey;
 // }
-
+.add-message-area {
+    height: 200px;
+}
 .message-text {
     margin: 15px 0 15px 0;
         p {
@@ -24,4 +26,9 @@
 
 .message-timestamp {
     font-size: 0.6em;
+}
+
+.add-message-form {
+    display: flex;
+    flex-direction: column;
 }
