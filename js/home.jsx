@@ -48,6 +48,10 @@ class Home extends React.Component {
     postMessage = (event) => {
         event.preventDefault();
         console.log('message', this.state.newMessage)
+        this.setState({
+            newMessage: ""
+        })
+
         let newMessage = {
             name: this.props.user.name,
             message: this.state.newMessage,
