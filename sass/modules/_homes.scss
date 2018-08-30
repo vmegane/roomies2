@@ -35,12 +35,25 @@
     margin: 10px 0 10px 0;
     display: flex;
     flex-direction: column;
-    background-color: $footerColor;
-    padding: 13px 0 13px 15px;
+    justify-content: flex-start;
+    background-color: #48acb8;
+    padding: 13px 15px 13px 15px;
     border-radius: 10px;
+    p.home-name {
+        padding: 3px 0 8px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: red;
+    font-size: 1.1em;
+    text-align: center;
+    }
+    span {
+        margin-left: 10px;
+    }
 
 }
 
-.join-input {
-    margin: -11px 0 0px 110px;
+.input-join {
+    margin-top: 20px;
+    border: 1px solid lightslategrey;
 }
