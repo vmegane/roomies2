@@ -30,7 +30,7 @@ class LogoutWrapper extends React.Component {
           
             <div className="logged-in-user-greeting">     
                 <form className="form">  
-               <input type="submit" value="log out" onClick={this.logout} /> 
+               <input type="submit" className="input-submit" value="log out" onClick={this.logout} /> 
                 </form>
 
                 </div>

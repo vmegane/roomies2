@@ -3,13 +3,21 @@
     width: auto;
     border: 1px solid grey;
     padding: 14px;
+    .home-list-wrapper {
+        display: flex;
+        align-content: center;
+    }
     .button-join-home{
         padding: 10px;
-    background-color: $buttonColor;
+    background-color: $secondButtonColor;
     color: white;
     font-family: "Raleway", sans-serif;
     font-size: 1em;
     transition: all .2s ease-in-out;
+    height: 50px;
+    width: 50px;
+    background-color: $secondButtonColor;
+    border: 1px solid lightslategrey;
     border-radius: 5px;
         border: 1px solid lightslategrey;
     }
@@ -30,32 +38,38 @@
 }
 
 .single-home-wrapper {
-    margin: 10px 0 10px 0;
+    margin: 10px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: #48acb8;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #c7ecf1;
     padding: 13px 15px 13px 15px;
-    border-radius: 10px;
-    p.home-name {
-        padding: 3px 0 8px 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: red;
-    font-size: 1.1em;
-    text-align: center;
+    border-radius: 2px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(115,115,115,1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(115,115,115,1);
+    box-shadow: 1px 1px 2px 0px rgba(115,115,115,1);
+    .single-home-wrapper-inner {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin: 12px;
+        span.home-name {
+            padding: 3px 0 3px 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $buttonColor;
+        font-size: 1.1em;
+        text-align: center;
+        }
+        span.roommates-number {
+            align-self: center;
+        }
     }
-    p.roommates-number {
-        margin-top: 10px;
-        align-self: center;
-    }
+    
     span {
         margin-left: 10px;
     }
 
-}
-
-.input-join {
-    margin-top: 20px;
-    border: 1px solid lightslategrey;
 }

@@ -56,10 +56,16 @@ class Homes extends React.Component {
 
                 <ul>
                     {homeNames.map((elem, index) => {
-                        return <li key={`home-${index + 1}`} className="single-home-wrapper">
-                            <p className="home-name">{elem}</p>
-                            <p className="roommates-number">Roommates:<span>3</span></p> 
-                            <input type="submit" data-id={`home${index + 1}`} value="Join" className="input-join" onClick={this.joinHome} />
+                        return <li key={`home-${index + 1}`}>
+                            <div className="single-home-wrapper">
+                                <div className="single-home-wrapper-inner">
+                                <span className="home-name">{elem}</span>
+                                <span className="roommates-number">roommates:<span>3</span></span>
+                                </div>
+                                
+                                <input type="submit" data-id={`home${index + 1}`} value="Join" className="button-join-home" onClick={this.joinHome} />
+                            </div>
+
                         </li>
                     })}
                 </ul>
