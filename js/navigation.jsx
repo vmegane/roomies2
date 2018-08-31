@@ -26,7 +26,8 @@ class Nav extends React.Component {
 
     render() {
         let myhome = `/home/${this.props.userData.home}`;
-        let myProfile = ``
+        let myProfile = `/user/${this.props.userId}`;
+        console.log('teścik', myProfile)
         let menuShowHide = !this.state.visible ? "navigation hideMenu" : "navigation showMenu";
         console.log('myhome', myhome)
         // let menuHide = this.state.visible ? "hideMenu" : "hideMenu"

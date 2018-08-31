@@ -16,6 +16,7 @@ import SignupWrapper from './signupwrapper.jsx';
 import Homes from './homes.jsx';
 import Home from './home.jsx';
 import CreateHome from './createhome.jsx';
+import UserProfile from './userProfile.jsx';
 
 import { createBrowserHistory } from 'history';
 import Redirect from 'react-router/Redirect';
@@ -93,38 +94,44 @@ class AppWrapper extends React.Component {
 
 
                 <Router history={history}>
-                    
-                        
-                        <div className="main-wrapper">
-                        <Header/>
-                            <Nav manageLogin={this.manageLogin} 
-                                userData={this.state.userData}/>
-                            <div className="content-wrapper">
-                                <Switch>
-                                    <Route exact path='/messages' component={Messages} />
-                                    <Route exact path='/' render={props => <Homes
-                                        {...props}
-                                        user={this.state.userData}
-                                        homeData={this.state.homeData}
-                                        history={history}
-                                    />} />
-                                    <Route path='/createhome' render={props => <CreateHome
-                                        {...props}
-                                        userId={this.state.currentUser.uid}
-                                        updateAllData={this.updateAllData}
-                                        history={history}
-                                    />} />
-                                    <Route path='/home/:home_id' render={props => <Home
-                                        {...props}
-                                        user={this.state.userData}
-                                        userId={this.state.currentUser.uid}
-                                        homeData={this.state.homeData}
-                                    />} />
-                                </Switch>              
 
-                            </div>
-                            {/* <Footer /> */}
+
+                    <div className="main-wrapper">
+                        <Header />
+                        <Nav manageLogin={this.manageLogin}
+                            userData={this.state.userData}
+                            userId={this.state.currentUser.uid} />
+                        <div className="content-wrapper">
+                            <Switch>
+                                <Route exact path='/messages' component={Messages} />
+                                <Route exact path='/' render={props => <Homes
+                                    {...props}
+                                    user={this.state.userData}
+                                    homeData={this.state.homeData}
+                                    history={history}
+                                />} />
+                                <Route path='/createhome' render={props => <CreateHome
+                                    {...props}
+                                    userId={this.state.currentUser.uid}
+                                    updateAllData={this.updateAllData}
+                                    history={history}
+                                />} />
+                                <Route path='/home/:home_id' render={props => <Home
+                                    {...props}
+                                    user={this.state.userData}
+                                    userId={this.state.currentUser.uid}
+                                    homeData={this.state.homeData}
+                                />} />
+                                <Route path='/user/:user_id' render={props => <UserProfile
+                                    {...props}
+                                    user={this.state.userData}
+                                    userId={this.state.currentUser.uid}
+                                />} />
+                            </Switch>
+
                         </div>
+                        {/* <Footer /> */}
+                    </div>
                 </Router>
 
             )
@@ -134,23 +141,23 @@ class AppWrapper extends React.Component {
                     <div className="main-wrapper">
                         <Header />
                         <div className="content-wrapper">
-                        <Switch>
-                            <div className="login-page-wrapper">
-                                {this.state.signupopen === false && <div> <h2>Sign in <span> <Link to='/signup'> or create account</Link></span></h2>
-                                </div>}
-                                <Route exact path='/' render={() => <LoginWrapper
-                                    manageLogin={this.manageLogin}
-                                    isLoggedIn={this.state.loggedin}
-                                // userName={this.state.userData.name}
-                                />} />
-                                <Route path='/signup' render={() => <SignupWrapper
-                                    manageLogin={this.manageLogin}
-                                    manageSignup={this.manageSignup}
-                                    history={history}
-                                />} />
-                            </div>
+                            <Switch>
+                                <div className="login-page-wrapper">
+                                    {this.state.signupopen === false && <div> <h2>Sign in <span> <Link to='/signup'> or create account</Link></span></h2>
+                                    </div>}
+                                    <Route exact path='/' render={() => <LoginWrapper
+                                        manageLogin={this.manageLogin}
+                                        isLoggedIn={this.state.loggedin}
+                                    // userName={this.state.userData.name}
+                                    />} />
+                                    <Route path='/signup' render={() => <SignupWrapper
+                                        manageLogin={this.manageLogin}
+                                        manageSignup={this.manageSignup}
+                                        history={history}
+                                    />} />
+                                </div>
 
-                        </Switch>
+                            </Switch>
                         </div>
                         {/* <Footer /> */}
                     </div>
