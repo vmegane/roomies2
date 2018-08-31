@@ -132,6 +132,7 @@ class AppWrapper extends React.Component {
                 <Router history={history}>
                     <div className="main-wrapper">
                         <Header />
+                        <div className="content-wrapper">
                         <Switch>
                             <div className="login-page-wrapper">
                                 {this.state.signupopen === false && <div> <h2>Sign in <span> <Link to='/signup'> or create account</Link></span></h2>
@@ -149,6 +150,7 @@ class AppWrapper extends React.Component {
                             </div>
 
                         </Switch>
+                        </div>
                         <Footer />
                     </div>
                 </Router>
