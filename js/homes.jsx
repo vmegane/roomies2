@@ -10,7 +10,6 @@ class Homes extends React.Component {
             homeData: this.props.homeData,
             pickedHome: ''
         }
-        //console.log('homes props', this.props)
     }
 
 

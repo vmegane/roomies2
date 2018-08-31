@@ -66,10 +66,10 @@ class CreateHome extends React.Component {
         return (
             <div className="homes-content-wrapper">
                 <h2>Creating your home</h2>
-                <form id="form-create-home">
+                <form className="single-home-wrapper">
                     {this.state.homeid === '' && <p>Your home name</p> }
                     {this.state.homeid === '' && <input value={this.state.homename} type="text" onChange={this.fillName} />} <br/>
-                    {this.state.homeid === '' && <button onClick={this.handleClick}>Continue</button> }<br/>
+                    {this.state.homeid === '' && <button onClick={this.handleClick} className="button">Continue</button> }<br/>
                     
                 </form>
             </div>
