@@ -37,27 +37,27 @@ class AppWrapper extends React.Component {
 
     componentWillMount() {
         fetch(`https://roomies-80535.firebaseio.com/homes.json`)
-        .then((response) => response.json())
-        .then((response) => {
-            console.log(response)
-            this.setState({
-                homeData: response
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response)
+                this.setState({
+                    homeData: response
+                })
             })
-        })
-}
-updateAllData = () => {
-    let homeData;
-    fetch(`https://roomies-80535.firebaseio.com/homes.json`)
-    .then((response) => response.json())
-    .then((response) => {
-        homeData = response;
-        console.log('updating all data',response)
-        this.setState({
-            homeData: homeData
-        })
-        console.log(this.state)
-    })
-}
+    }
+    updateAllData = () => {
+        let homeData;
+        fetch(`https://roomies-80535.firebaseio.com/homes.json`)
+            .then((response) => response.json())
+            .then((response) => {
+                homeData = response;
+                console.log('updating all data', response)
+                this.setState({
+                    homeData: homeData
+                })
+                console.log(this.state)
+            })
+    }
 
     getUserData() {
         let userData;
@@ -68,9 +68,9 @@ updateAllData = () => {
                 this.setState({ userData: userData });
                 console.log(userData)
             })
-          
-}
-   
+
+    }
+
     manageLogin = (loginstate) => {
         this.setState({
             loggedin: loginstate,
@@ -86,63 +86,45 @@ updateAllData = () => {
         })
     }
 
-    // watchAuthState() {
-    //     firebase.auth().onAuthStateChanged((firebaseUser) => {
-    //         if (firebaseUser) {
-    //             this.setState({
-    //                 currentUser: firebaseUser,
-    //                 loggedin: true,
-    //                 userId: firebaseUser.uid
-    //             })
-    //             console.log('watcher: user loggedin: ', firebaseUser.uid)
-    //         } else {
-    //             this.setState({
-    //                 currentUser: null,
-    //                 loggedin: false
-    //             })
-    //             console.log('not logged in')
-    //         }
-    //     })
-    // }
 
     render() {
         if (this.state.loggedin === true) {
             return (
-                <Router  history={history}>
-                    <div className="main-wrapper">
-                        <Header />
-                        {/* <LoginWrapper
-                            manageLogin={this.manageLogin}
-                            isLoggedIn={this.state.loggedin}
-                        // userName={this.state.userData.name}
-                        /> */}
-                        <Nav manageLogin={this.manageLogin}/>
-                        <div className="content-wrapper">
-                        <Switch>
-                            <Route exact path='/messages' component={Messages} />
-                            <Route exact path='/' render={props => <Homes
-                                {...props}
-                                user={this.state.userData}
-                                homeData={this.state.homeData}
-                                history={history}
-                            />} />
-                            <Route path='/createhome' render={ props => <CreateHome
-                                {...props}
-                                userId={this.state.currentUser.uid}
-                                updateAllData={this.updateAllData}
-                                history={history}
-                            />} />
-                            <Route path='/home/:home_id' render={ props => <Home
-                                {...props}
-                                user={this.state.userData}
-                                userId={this.state.currentUser.uid}
-                                homeData={this.state.homeData}
-                            />} />
-                        </Switch>
+
+
+                <Router history={history}>
+                    <div>
+                        <Header/>
+                            <Nav manageLogin={this.manageLogin} />
+                        <div className="main-wrapper">
+                            <div className="content-wrapper">
+                                <Switch>
+                                    <Route exact path='/messages' component={Messages} />
+                                    <Route exact path='/' render={props => <Homes
+                                        {...props}
+                                        user={this.state.userData}
+                                        homeData={this.state.homeData}
+                                        history={history}
+                                    />} />
+                                    <Route path='/createhome' render={props => <CreateHome
+                                        {...props}
+                                        userId={this.state.currentUser.uid}
+                                        updateAllData={this.updateAllData}
+                                        history={history}
+                                    />} />
+                                    <Route path='/home/:home_id' render={props => <Home
+                                        {...props}
+                                        user={this.state.userData}
+                                        userId={this.state.currentUser.uid}
+                                        homeData={this.state.homeData}
+                                    />} />
+                                </Switch>
+                            </div>
+                            <Footer />
                         </div>
-                        <Footer />
                     </div>
                 </Router>
+
             )
         } else {
             return (

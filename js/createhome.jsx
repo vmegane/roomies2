@@ -52,10 +52,10 @@ class CreateHome extends React.Component {
                         body: JSON.stringify(updatedUser)
                     })
                 })
-            // .then(() => {
-            //     console.log('update data', this.props)
-            //    this.props.updateAllData()
-            // })
+            .then(() => {
+                console.log('update data', this.props)
+               this.props.updateAllData()
+            })
             .then(() => {
                 this.props.history.push(`/homes`)
             })
