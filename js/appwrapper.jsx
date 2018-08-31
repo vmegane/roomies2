@@ -93,10 +93,11 @@ class AppWrapper extends React.Component {
 
 
                 <Router history={history}>
-                    <div>
+                    
+                        
+                        <div className="main-wrapper">
                         <Header/>
                             <Nav manageLogin={this.manageLogin} />
-                        <div className="main-wrapper">
                             <div className="content-wrapper">
                                 <Switch>
                                     <Route exact path='/messages' component={Messages} />
@@ -118,11 +119,11 @@ class AppWrapper extends React.Component {
                                         userId={this.state.currentUser.uid}
                                         homeData={this.state.homeData}
                                     />} />
-                                </Switch>
+                                </Switch>              
+
                             </div>
                             <Footer />
                         </div>
-                    </div>
                 </Router>
 
             )
