@@ -97,7 +97,8 @@ class AppWrapper extends React.Component {
                         
                         <div className="main-wrapper">
                         <Header/>
-                            <Nav manageLogin={this.manageLogin} />
+                            <Nav manageLogin={this.manageLogin} 
+                                userData={this.state.userData}/>
                             <div className="content-wrapper">
                                 <Switch>
                                     <Route exact path='/messages' component={Messages} />
@@ -122,7 +123,7 @@ class AppWrapper extends React.Component {
                                 </Switch>              
 
                             </div>
-                            <Footer />
+                            {/* <Footer /> */}
                         </div>
                 </Router>
 
@@ -151,7 +152,7 @@ class AppWrapper extends React.Component {
 
                         </Switch>
                         </div>
-                        <Footer />
+                        {/* <Footer /> */}
                     </div>
                 </Router>
             )

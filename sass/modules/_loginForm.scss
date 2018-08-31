@@ -20,6 +20,8 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    @media screen and (max-height: 360px) {
+    padding: 2px;    }
     input {
         padding: 10px 10px 10px 10px;
         margin-bottom: 15px;

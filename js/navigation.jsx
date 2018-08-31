@@ -25,7 +25,10 @@ class Nav extends React.Component {
     }
 
     render() {
+        let myhome = `/home/${this.props.userData.home}`;
+        let myProfile = ``
         let menuShowHide = !this.state.visible ? "navigation hideMenu" : "navigation showMenu";
+        console.log('myhome', myhome)
         // let menuHide = this.state.visible ? "hideMenu" : "hideMenu"
         return (
             <div>
@@ -33,16 +36,10 @@ class Nav extends React.Component {
                 <div className={menuShowHide} onClick={this.handleClick}>
                     <ul>
                         <li>
-                            <Link to="/home">Your home</Link>
+                            <Link to={myhome}>Your home</Link>
                         </li>
                         <li>
-                            <Link to="/messages">Your messages</Link>
-                        </li>
-                        <li>
-                            <Link to="/home">Your home</Link>
-                        </li>
-                        <li>
-                            <Link to="/user">Your profile</Link>
+                            <Link to={myProfile}>Your profile</Link>
                         </li>
                         {/* <li>
                             <Link to="/help">Help</Link>
