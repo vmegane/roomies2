@@ -112,6 +112,7 @@ class AppWrapper extends React.Component {
                                 />} />
                                 <Route path='/createhome' render={props => <CreateHome
                                     {...props}
+                                    user={this.state.userData}
                                     userId={this.state.currentUser.uid}
                                     updateAllData={this.updateAllData}
                                     history={history}
@@ -139,11 +140,11 @@ class AppWrapper extends React.Component {
             return (
                 <Router history={history}>
                     <div className="main-wrapper">
-                        <Header />
-                        <div className="content-wrapper">
+                        {/* <Header /> */}
+                        <div className="login-page-wrapper">
                             <Switch>
-                                <div className="login-page-wrapper">
-                                    {this.state.signupopen === false && <div> <h2>Sign in <span> <Link to='/signup'> or create account</Link></span></h2>
+                                <div className="login-page-form-wrapper">
+                                    {this.state.signupopen === false && <div> <h2>Sign in or <span className="link"> <Link to='/signup'> create account</Link></span></h2>
                                     </div>}
                                     <Route exact path='/' render={() => <LoginWrapper
                                         manageLogin={this.manageLogin}

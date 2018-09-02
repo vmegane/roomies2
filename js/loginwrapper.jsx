@@ -57,11 +57,10 @@ class LoginWrapper extends React.Component {
     render() {
         return (
             <div className="login-form-wrapper">
-
-                <form className="form">
+               <form className="form">
                     <input type="email" placeholder="type your email" value={this.props.email} onChange={this.fillEmail} />
                     <input type="password" placeholder="type your password" value={this.props.password} onChange={this.fillPassword} />
-                    <input type="submit"   className="input-submit" value="login" onClick={this.login} />
+                    <input type="submit"   className="input-submit-logout" value="login" onClick={this.login} />
                 </form>
 
             </div>

@@ -28,9 +28,11 @@ class CreateHome extends React.Component {
         e.preventDefault();
         const newHome = {
             name: this.state.homename,
-            roommates: this.state.user,
+            roommates: {name: this.props.user.name,
+                        id: this.state.user},
             messages: {}
         }
+        console.log('new home', newHome)
         fetch(`https://roomies-80535.firebaseio.com/homes/home${this.state.numberOfHomes + 1}.json`,
             {
                 method: "PUT",

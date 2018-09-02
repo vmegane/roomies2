@@ -27,15 +27,16 @@ class Nav extends React.Component {
     render() {
         let myhome = `/home/${this.props.userData.home}`;
         let myProfile = `/user/${this.props.userId}`;
-        console.log('teścik', myProfile)
+        // console.log('teścik', myProfile)
         let menuShowHide = !this.state.visible ? "navigation hideMenu" : "navigation showMenu";
-        console.log('myhome', myhome)
+         console.log('myhome', myhome)
         // let menuHide = this.state.visible ? "hideMenu" : "hideMenu"
         return (
             <div>
                 <div className="burger-menu-icon" onClick={this.handleClick}></div>
                 <div className={menuShowHide} onClick={this.handleClick}>
-                    <ul>
+                <div className="navigation-wrapper">
+                <ul className="navigation-list">
                         <li>
                             <Link to={myhome}>Your home</Link>
                         </li>
@@ -44,9 +45,12 @@ class Nav extends React.Component {
                         </li>
                         {/* <li>
                             <Link to="/help">Help</Link>
-                        </li> */}
-                        <LogoutWrapper manageLogin={this.props.manageLogin}/>
+                        </li> */}        
                     </ul>
+                    <LogoutWrapper manageLogin={this.props.manageLogin}/>
+
+                </div>
+                 
                 </div>
             </div>
         )

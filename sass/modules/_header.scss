@@ -4,7 +4,7 @@
     background-color: $headerColor;
     color: $textColor;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 0.9em;
     display: flex;
     justify-content: center;
     align-self: flex-start;
@@ -14,7 +14,14 @@
     -webkit-box-shadow: -1px 4px 16px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 4px 16px 0px rgba(0,0,0,0.75);
     box-shadow: -1px 4px 16px 0px rgba(0,0,0,0.75);
-    
+    h1 {
+        font-family: $mainFont;
+        color: $textColor;
+        margin: 20px auto;
+        width: 220px;
+        text-align: center;
+        font-size: 1.5em;
+    }
 }
 
 .logged-in-user-greeting  {

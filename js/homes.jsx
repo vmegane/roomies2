@@ -16,12 +16,14 @@ class Homes extends React.Component {
 
     joinHome = (event) => {
         let homeId = event.target.dataset.id;
-        console.log('event target', event.target.dataset.id)
-        console.log('id', this.props.user.userID)
+        let roommates = {name: this.props.user.name,
+        id: this.props.user.userID};
+        // console.log('event target', event.target.dataset.id)
+        // console.log('id', this.props.user.userID)
         fetch(`https://roomies-80535.firebaseio.com/homes/${homeId}/roommates.json`,
             {
                 method: "POST",
-                body: JSON.stringify(this.props.user.userID)
+                body: JSON.stringify(roommates)
             }).then(() => {
                 fetch(`https://roomies-80535.firebaseio.com/users/${this.props.user.userID}/home.json`,
                     {
@@ -52,7 +54,7 @@ class Homes extends React.Component {
                 <p>Join one of the homes or create your own
                     </p>
                 <Link to='/createhome'>
-                    <button className="button">Create home</button></Link>
+                    <button className="button create-home-button">Create home</button></Link>
 
                 <ul>
                     {homeNames.map((elem, index) => {
