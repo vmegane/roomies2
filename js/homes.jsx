@@ -51,12 +51,13 @@ class Homes extends React.Component {
             <div className="homes-content-wrapper">
 
                 <h2>Homes</h2>
+                <div className="create-home-wrapper">
                 <p>Join one of the homes or create your own
                     </p>
                 <Link to='/createhome'>
                     <button className="button create-home-button">Create home</button></Link>
-
-                <ul>
+                </div>
+                <ul className="homes-list">
                     {homeNames.map((elem, index) => {
                         return <li key={`home-${index + 1}`}>
                             <div className="single-home-wrapper">

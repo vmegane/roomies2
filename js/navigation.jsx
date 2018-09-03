@@ -38,7 +38,7 @@ class Nav extends React.Component {
                 <div className="navigation-wrapper">
                 <ul className="navigation-list">
                         <li>
-                            <Link to={myhome}>Your home</Link>
+                            {myhome!=='undefined' && <Link to={myhome}>Your home</Link>}
                         </li>
                         <li>
                             <Link to={myProfile}>Your profile</Link>

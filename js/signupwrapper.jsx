@@ -135,7 +135,7 @@ class SignupWrapper extends React.Component {
                             })}
                         </select> */}
 
-                    <input type="submit" className="input-submit" value="sign up" onClick={this.completeSignup} />
+                    <input type="submit" className="input-submit-login" value="sign up" onClick={this.completeSignup} />
                 </form>
             </div>
         )
