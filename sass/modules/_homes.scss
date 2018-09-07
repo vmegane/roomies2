@@ -1,9 +1,15 @@
 .homes-content-wrapper {
     background-color: $containerBgColor;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     border: 1px solid grey;
     padding: 14px;
     width: 100%;
     height: auto;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(115, 115, 115, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(115, 115, 115, 1);
+    box-shadow: 1px 1px 2px 0px rgba(115, 115, 115, 1);
 
     .home-list-wrapper {
         display: flex;
