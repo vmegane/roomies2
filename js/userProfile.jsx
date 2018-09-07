@@ -8,7 +8,7 @@ class UserProfile extends React.Component {
         render() {
             return (
                 <div className="homes-content-wrapper">
-                    <h1>userProfile</h1>
+                    <h2>userProfile</h2>
                    <h2> {this.props.user.name}</h2>
                 </div>
             )
