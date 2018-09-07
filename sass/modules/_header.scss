@@ -2,6 +2,13 @@
     height: 70px;
     width: 100%;
     background-color: $headerColor;
+    @media screen and (min-width: 720px) {
+        background-image: url('../images/home.jpg');
+        height: 200px;
+        background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
     color: $textColor;
     text-align: center;
     font-size: 0.9em;

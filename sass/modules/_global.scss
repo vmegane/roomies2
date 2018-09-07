@@ -7,7 +7,10 @@ body {
     font-family: $mainFont;
     list-style: none;
     text-decoration: none;
-    background-image: url('../images/home.jpg');
+    //background-image: url('../images/home.jpg');
+    @media screen and (min-width: 720px) {
+        background-color: #fafafa;
+    }
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -28,6 +31,10 @@ body {
      @media screen and (max-width: 600px) {
         width: 100%;
     }
+    @media screen and (min-width: 720px) {
+        margin-top: 200px;
+    }
+    
     max-width: 720px;
     margin-top: 60px;
     display: flex;
