@@ -16,8 +16,10 @@ class Homes extends React.Component {
 
     joinHome = (event) => {
         let homeId = event.target.dataset.id;
-        let roommates = {name: this.props.user.name,
-        id: this.props.user.userID};
+        let roommates = {
+            name: this.props.user.name,
+            id: this.props.user.userID
+        };
         // console.log('event target', event.target.dataset.id)
         // console.log('id', this.props.user.userID)
         fetch(`https://roomies-80535.firebaseio.com/homes/${homeId}/roommates.json`,
@@ -52,20 +54,22 @@ class Homes extends React.Component {
 
                 <h2>Homes</h2>
                 <div className="create-home-wrapper">
-                <p>Join one of the homes or create your own
+                    <p>Join one of the homes or create your own
                     </p>
-                <Link to='/createhome'>
-                    <button className="button create-home-button">Create home</button></Link>
+                    <p>
+                    <Link to='/createhome'>
+                        <button className="button create-home-button">Create home</button></Link>
+                        </p>
                 </div>
                 <ul className="homes-list">
                     {homeNames.map((elem, index) => {
                         return <li key={`home-${index + 1}`}>
                             <div className="single-home-wrapper">
                                 <div className="single-home-wrapper-inner">
-                                <span className="home-name">{elem}</span>
-                                <span className="roommates-number">roommates:<span>3</span></span>
+                                    <span className="home-name">{elem}</span>
+                                    <span className="roommates-number">roommates:<span>3</span></span>
                                 </div>
-                                
+
                                 <input type="submit" data-id={`home${index + 1}`} value="Join" className="button-join-home" onClick={this.joinHome} />
                             </div>
 

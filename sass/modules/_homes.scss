@@ -1,20 +1,11 @@
 .homes-content-wrapper {
-    background-color: $containerBgColor;
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 1px solid grey;
     padding: 14px;
     width: 100%;
     height: auto;
-    -webkit-box-shadow: 2px 2px 5px 0px rgba(115, 115, 115, 1);
-    -moz-box-shadow: 2px 2px 5px 0px rgba(115, 115, 115, 1);
-    box-shadow: 1px 1px 2px 0px rgba(115, 115, 115, 1);
 
-    .home-list-wrapper {
-        display: flex;
-        align-content: center;
-    }
 
     .button-join-home {
          @media screen and (max-width: 350px) {
@@ -33,13 +24,30 @@
         background-color: $secondButtonColor;
         border: 1px solid lightslategrey;
         border-radius: 5px;
-        border: 1px solid lightslategrey;
     }
 
-    .create-home-wrapper {
-        padding: 10px;
+
+    h1 {
+        margin: 20px 0 20px 0;
+    }
+}
+
+.create-home-wrapper {
+    // display: flex;
+    // flex-direction: column;
+    // align-content: center;
+    // align-items: center;
+    padding: 10px;
+    p {
+        text-align: center;
+    }
+    .create-home-form {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        width: 80%;
         .create-home-button {
-       
             padding: 10px;
             margin: 17px 0 17px 0;
             background-color: $buttonColor;
@@ -50,27 +58,6 @@
             border-radius: 5px;
             border: 1px solid lightslategrey;
         }
-    }
-    
-
-    h1 {
-        margin: 20px 0 20px 0;
-    }
-}
-
-.create-home-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-   
-
-    .create-home-form {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        align-items: center;
-        width: 80%;
         input {
             padding: 10px 10px 10px 10px;
             margin-bottom: 15px;
@@ -98,9 +85,9 @@
     }
 }
 .homes-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
     .single-home-wrapper {
         margin: 10px;
         display: flex;
