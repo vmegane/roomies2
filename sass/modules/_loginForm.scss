@@ -8,6 +8,25 @@
     height: 70%;
 }
 
+
+.input-submit-logout {
+    padding: 10px;
+    @media screen and (max-width: 720px) {
+        margin-bottom: 28px;
+        background-color: $buttonColor;
+
+    }
+    border: 0;
+    border-radius: 25px;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: .7em;
+    background-color: $secondButtonColor;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    transition: all .2s ease-in-out;
+}
+
 .login-page-form-wrapper {
     height: 100%;
     width: 100%;
@@ -27,8 +46,8 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-  //  align-items: center;
-  //  height: 77%;
+
+  
 }
 .form {
     display: flex;
@@ -73,18 +92,7 @@
             text-transform: uppercase;
             transition: all .2s ease-in-out;
         }
-        &.input-submit-logout {
-            padding: 10px;
-            border: 0;
-            border-radius: 25px;
-            background-color: $buttonColor;
-            color: white;
-            font-family: "Raleway", sans-serif;
-            font-size: .7em;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            transition: all .2s ease-in-out;
-        }
+        
             &:hover {
                 transform: scale(1.1);
             }

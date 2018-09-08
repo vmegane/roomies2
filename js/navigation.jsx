@@ -43,9 +43,9 @@ class Nav extends React.Component {
                         <li>
                             <Link to={myProfile}>Your profile</Link>
                         </li>
-                        {/* <li>
-                            <Link to="/help">Help</Link>
-                        </li> */}        
+                         <li>
+                            <Link to="/homes">All Homes</Link>
+                        </li>       
                     </ul>
                     <LogoutWrapper manageLogin={this.props.manageLogin}/>
 

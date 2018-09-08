@@ -27,9 +27,7 @@ class LogoutWrapper extends React.Component {
     render() {
         return (
             <div className="logout-form-wrapper">  
-                <form className="form">  
                <input type="submit" className="input-submit-logout" value="log out" onClick={this.logout} /> 
-                </form>
             </div>
         )
     }
