@@ -1,23 +1,26 @@
-// .add-message-button {
-//     padding: 10px;
-//     margin: 17px 0 17px 0;
-//     background-color: $buttonColor;
-//     color: white;
-//     font-family: "Raleway", sans-serif;
-//     font-size: 1.1em;
-//     transition: all .2s ease-in-out;
-//     border-radius: 5px;
-//     border: 1px solid lightslategrey;
-// }
-.add-message-area {
-    height: 200px;
+.add-message-button {
+    padding: 15px 0 30px 0;
 }
+
+.post-button {
+    display: block;
+    margin: 17px auto 17px auto;
+    width: 70px;
+}
+
+.add-message-area {
+    height: 100px;
+    width: 100%;
+    resize: none;
+}
+
 .message-text {
     margin: 15px 0 15px 0;
-        p {
+
+    p {
         color: $buttonColor;
         margin: 3px 0 3px 0;
-        }
+    }
 }
 
 .message-author {
@@ -29,6 +32,6 @@
 }
 
 .add-message-form {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    width: 70%;
 }

@@ -57,9 +57,9 @@ class Homes extends React.Component {
                     <p>Join one of the homes or create your own
                     </p>
                     <p>
-                    <Link to='/createhome'>
-                        <button className="button create-home-button">Create home</button></Link>
-                        </p>
+                        <Link to='/createhome'>
+                            <button className="button create-home-button">Create home</button></Link>
+                    </p>
                 </div>
                 <ul className="homes-list">
                     {homeNames.map((elem, index) => {
@@ -75,6 +75,7 @@ class Homes extends React.Component {
 
                         </li>
                     })}
+                    
                 </ul>
 
             </div>
