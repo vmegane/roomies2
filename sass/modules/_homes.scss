@@ -21,9 +21,7 @@
         transition: all .2s ease-in-out;
         height: 50px;
         width: 50px;
-        background-color: $secondButtonColor;
-        border: 1px solid lightslategrey;
-        border-radius: 5px;
+        border-radius: 25px;
     }
 
 
@@ -85,6 +83,7 @@
     }
 }
 .homes-list {
+    width: 80%;
     // display: flex;
     // flex-direction: row;
     // flex-wrap: wrap;
@@ -104,12 +103,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        @media screen and (max-width: 720px) {
-            flex-direction: column;
-        }
-        @media screen and (min-width: 721px) {
-            flex-direction: column;
-        }
+
 }
 
 
