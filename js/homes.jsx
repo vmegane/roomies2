@@ -49,7 +49,6 @@ class Homes extends React.Component {
             homeNames.push(this.state.homeData[key].name);
             
         }
-        console.log('lista domoów', homeNames);
         return (
             <div className="homes-content-wrapper">
 
@@ -67,8 +66,8 @@ class Homes extends React.Component {
                         return <li key={`home-${index + 1}`}>
                             <div className="single-home-wrapper">
                                 <div className="single-home-wrapper-inner">
-                                    <span className="home-name">{elem}</span>
-                                    <span className="roommates-number">roommates:<span>3</span></span>
+                                    <span className="home-name"><Link to={`/home/home${index + 1}`}>{elem}</Link></span>
+                                    {/* <span className="roommates-number">roommates:<span>3</span></span> */}
                                 </div>
 
                                 <input type="submit" data-id={`home${index + 1}`} value="Join" className="button-join-home" onClick={this.joinHome} />

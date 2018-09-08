@@ -126,14 +126,6 @@ class SignupWrapper extends React.Component {
                     
                         <input type="email" value={this.state.email} placeholder="type your email" onChange={this.fillEmail} />
                         <input type="password" value={this.state.password} placeholder="type your password" onChange={this.fillPassword} />
-                        {/* Pick your home:
-                        
-                        <select value={this.state.home} placeholder="" onChange={this.fillPickhome}>  
-                        <option value=""> </option> 
-                            {formOptions.map((elem, index) => {
-                                return <option key={`option-${index}`} value={objectKeys[index]}>{elem.name}</option>
-                            })}
-                        </select> */}
 
                     <input type="submit" className="input-submit-login" value="sign up" onClick={this.completeSignup} />
                 </form>
