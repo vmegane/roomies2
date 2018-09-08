@@ -107,7 +107,7 @@ class Home extends React.Component {
                     {this.state.allMessages.map((elem, index) => {
                         return <li className="message-text" key={`message-${index}`}>
                         <div className="message-wrapper">
-                        <div className="user-avatar"></div>
+                        {/* <div className="user-avatar"></div> */}
                         <span className="message-author">{elem.name}</span>
                             <p>{elem.message}</p>
                             <span className="message-timestamp">{elem.timestamp}</span>
