@@ -40,20 +40,6 @@ class LoginWrapper extends React.Component {
     }
 
 
-    // logout = (event) => {
-    //     event.preventDefault();
-    //     console.log('clicked logout', this.state.email)
-    //     firebase.auth().signOut;
-    //     this.setState({
-    //         email: '@',
-    //         password: '',
-    //         userID: '',
-    //         loggedin: false,
-    //         currentUser: null
-    //     });
-    //     this.props.manageLogin(false);
-    // }
-
     render() {
         return (
             <div className="login-form-wrapper">

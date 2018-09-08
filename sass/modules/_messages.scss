@@ -1,5 +1,27 @@
+<<<<<<< HEAD
 .add-message-button {
     padding: 15px 0 30px 0;
+=======
+.messages-content-wrapper {
+    //@media screen and (min-width: 720px) {
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: flex-start;
+        // align-items: center;
+   // }
+    padding: 14px;
+    width: 100%;
+    height: auto;
+    .add-message-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+.add-message-button {
+    padding: 15px 0 15px 0;
+>>>>>>> dfde0e52d1f5a8c1a925e38a9b3f5b523f79445f
 }
 
 .post-button {
@@ -15,6 +37,7 @@
     border-radius: 5px;
     border: 1px solid lightslategrey;
 }
+<<<<<<< HEAD
 
 .message-text {
     margin: 15px 0 15px 0;
@@ -32,8 +55,63 @@
 .message-timestamp {
     font-size: 0.6em;
 }
+=======
+.message-list {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.message-wrapper {
+    li {
+        width: 100%;
+    }
+    width: 90%;
+    margin: 0;        
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #c7ecf1;
+    padding: 13px 15px 13px 15px;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(129, 129, 129,1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(129, 129, 129,1);
+    box-shadow: 1px 1px 2px 0px rgba(129, 129, 129, 1);
+    .message-text {
+        margin: 15px 0 15px 0;
+    
+        p {
+            color: $buttonColor;
+            margin: 3px 0 3px 0;
+        }
+    }
+    // .user-avatar {
+    //     width: 41px;
+    //     height: 50px;
+    //     background-size: contain;
+    //     background-image: url('../images/user-face.png')
+    // }
+    .message-author {
+        color: $buttonColor;
+        font-size: 1em;
+        padding: 5px;
+    }
+    
+    .message-timestamp {
+        font-size: 0.6em;
+        padding: 5px;
+    }
+}
+
+>>>>>>> dfde0e52d1f5a8c1a925e38a9b3f5b523f79445f
 
 .add-message-form {
     display: block;
     width: 70%;
+<<<<<<< HEAD
+=======
+}
+
+>>>>>>> dfde0e52d1f5a8c1a925e38a9b3f5b523f79445f
 }
