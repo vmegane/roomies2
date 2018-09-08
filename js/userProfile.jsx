@@ -10,6 +10,8 @@ class UserProfile extends React.Component {
                 <div className="homes-content-wrapper">
                     <h2>userProfile</h2>
                    <h2> {this.props.user.name}</h2>
+                   <p>{this.props.user.email}</p>
+                   <div className="user-photo">photo</div>
                 </div>
             )
         }

@@ -95,10 +95,10 @@ class Home extends React.Component {
                 {/* <h2> {this.state.homeData[this.state.home_id].name}</h2> */}
                 <h2>Messages</h2>
 
-                {this.state.openMessageForm === false && <button className="button" onClick={this.openAddMessage}> add message </button>}
+                {this.state.openMessageForm === false && <button className="button add-message-button" onClick={this.openAddMessage}> add message </button>}
                 {this.state.openMessageForm && <form className="add-message-form">
                     <textarea className="add-message-area" value={this.state.newMessage} onChange={this.fillNewMessage} />
-                    <input type="submit" value="Post" className="button" onClick={this.postMessage} />
+                    <input type="submit" value="Post" className="button post-button" onClick={this.postMessage} />
                 </form>}
 
                 <ul>
