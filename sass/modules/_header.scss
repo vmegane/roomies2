@@ -23,11 +23,18 @@
     box-shadow: -1px 4px 16px 0px rgba(0,0,0,0.75);
     h1 {
         font-family: $mainFont;
-        color: $textColor;
+        color: white;
+        @media screen and (max-width: 720px) {
+            color: $textColor;
+            text-shadow: none;        
+
+        }
+        text-shadow: 9px 7px 15px black;        
         margin: 20px auto;
         width: 220px;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 2em;
+        letter-spacing: .7px;
     }
 }
 
