@@ -59,7 +59,7 @@ class CreateHome extends React.Component {
                 this.props.updateAllData()
             })
             .then(() => {
-                this.props.history.push(`/homes`)
+                this.props.history.push(`/home/${this.state.homeid}`)
             })
     }
 

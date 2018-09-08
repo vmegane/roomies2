@@ -11,11 +11,16 @@
     div {
         justify-content: center;
     }
+    
 }
 .navigation-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media screen and (min-width: 720px) {
+        position: absolute;
+        left: 0;
+        }
 }
 
 .hideMenu {
@@ -54,6 +59,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin: 6px auto 0 auto;
+    @media screen and (min-width: 720px) {
+        display: none;
+        }
     // -webkit-box-shadow: 7px 6px 32px 19px rgba(255, 255, 255, 0.75);
     // -moz-box-shadow: 7px 6px 32px 19px rgba(255, 255, 255,0.75);
     // box-shadow: 7px 6px 32px 19px rgba(255, 255, 255,0.75);
