@@ -9,9 +9,9 @@ class UserProfile extends React.Component {
             return (
                 <div className="homes-content-wrapper">
                     <h2>userProfile</h2>
-                   <h2> {this.props.user.name}</h2>
-                   <p>{this.props.user.email}</p>
-                   <div className="user-photo">photo</div>
+                   <h2 className="user-name"> {this.props.user.name}</h2>
+                   <p className="user-email">{this.props.user.email}</p>
+                   <div className="user-photo"></div>
                 </div>
             )
         }

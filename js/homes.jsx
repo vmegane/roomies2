@@ -47,8 +47,9 @@ class Homes extends React.Component {
         let objectKeys = Object.keys(this.state.homeData);
         for (var key in this.state.homeData) {
             homeNames.push(this.state.homeData[key].name);
+            
         }
-
+        console.log('lista domoów', homeNames);
         return (
             <div className="homes-content-wrapper">
 

@@ -139,7 +139,7 @@ class AppWrapper extends React.Component {
         } else {
             return (
                 <Router history={history}>
-                    <div className="main-wrapper">
+                    <div className="main-wrapper background-image">
                         {/* <Header /> */}
                         <div className="login-page-wrapper">
                             <Switch>
