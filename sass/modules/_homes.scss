@@ -1,7 +1,10 @@
 .homes-content-wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    @media screen and (min-width: 720px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     padding: 14px;
     width: 100%;
     height: auto;
@@ -88,22 +91,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 90%;
-    li {
+    width: 100%;
+        li {
         margin: 5px;
     }
     @media screen and (min-width: 720px) {
         li {
-            width: 48%;
-            overflow: hidden;
+            width: 46%;
+            //overflow: hidden;
             margin: 5px;
         }
-        width: 90%;
+        width: 95%;
         display: flex;
         flex-direction: row;
         align-items: center;
         flex-wrap: wrap;
-        justify-content: space-between;    }
+        justify-content: space-around;   }
     
         .single-home-wrapper {
         margin: 0;        
@@ -113,10 +116,10 @@
         justify-content: space-between;
         background-color: #c7ecf1;
         padding: 13px 15px 13px 15px;
-        border-radius: 2px;
-        -webkit-box-shadow: 2px 2px 5px 0px rgba(115, 115, 115, 1);
-        -moz-box-shadow: 2px 2px 5px 0px rgba(115, 115, 115, 1);
-        box-shadow: 1px 1px 2px 0px rgba(115, 115, 115, 1);
+        border-radius: 5px;
+        -webkit-box-shadow: 2px 2px 5px 0px rgba(129, 129, 129,1);
+        -moz-box-shadow: 2px 2px 5px 0px rgba(129, 129, 129,1);
+        box-shadow: 1px 1px 2px 0px rgba(129, 129, 129, 1);
         //min-width: 300px;
         // @media screen and (max-width: 350px) {
         //     align-items: center;
@@ -128,7 +131,7 @@
             // align-items: center;
             // flex-wrap: wrap;
             // justify-content: center;
-            width: 100%;
+            width: 94%;            
             justify-content: center;
             -webkit-box-shadow: 2px 2px 5px 0px rgba(115, 115, 115, 1);
             -moz-box-shadow: 2px 2px 5px 0px rgba(115, 115, 115, 1);
@@ -155,13 +158,18 @@
             width: 100%;
         }
         span.home-name {
-            margin: 5px;
-            padding: 3px 0 3px 0;
-            text-transform: uppercase;
-            font-weight: bold;
-            //color: $buttonColor;
-            font-size: 1.1em;
-            text-align: center;
+        margin: 5px;
+        padding: 3px 0 3px 0;
+        text-transform: capitalize;
+        font-weight: bold;
+        font-size: 1.3em;
+        text-align: center;
+        letter-spacing: 1px;
+         a {
+             &:hover {
+                 color: $buttonColor;
+             }
+         }
         }
 
         span.roommates-number {

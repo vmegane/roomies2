@@ -91,22 +91,27 @@ class Home extends React.Component {
 
 
         return (
-            <div className="homes-content-wrapper">
+            <div className="messages-content-wrapper">
                 {/* <h2> {this.state.homeData[this.state.home_id].name}</h2> */}
                 <h2>Messages</h2>
+                <div className="add-message-wrapper">
+                    {this.state.openMessageForm === false && <button className="button add-message-button" onClick={this.openAddMessage}> add message </button>}
+                    {this.state.openMessageForm && <form className="add-message-form">
+                        <textarea className="add-message-area" value={this.state.newMessage} onChange={this.fillNewMessage} />
+                        <input type="submit" value="Post" className="button post-button" onClick={this.postMessage} />
+                    </form>}
+                </div>
 
-                {this.state.openMessageForm === false && <button className="button add-message-button" onClick={this.openAddMessage}> add message </button>}
-                {this.state.openMessageForm && <form className="add-message-form">
-                    <textarea className="add-message-area" value={this.state.newMessage} onChange={this.fillNewMessage} />
-                    <input type="submit" value="Post" className="button post-button" onClick={this.postMessage} />
-                </form>}
 
-                <ul>
+                <ul className="message-list">
                     {this.state.allMessages.map((elem, index) => {
                         return <li className="message-text" key={`message-${index}`}>
-                            <span className="message-author">{elem.name}</span>
+                        <div className="message-wrapper">
+                        <div className="user-avatar"></div>
+                        <span className="message-author">{elem.name}</span>
                             <p>{elem.message}</p>
                             <span className="message-timestamp">{elem.timestamp}</span>
+                        </div>     
                         </li>
                     })}
                 </ul>
