@@ -1,12 +1,10 @@
-.add-message-button {
-    padding: 15px 0 30px 0;
 .messages-content-wrapper {
-    //@media screen and (min-width: 720px) {
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: flex-start;
-        // align-items: center;
-   // }
+    @media screen and (min-width: 720px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+   }
     padding: 14px;
     width: 100%;
     height: auto;
@@ -35,14 +33,6 @@
     border: 1px solid lightslategrey;
 }
 
-.message-text {
-    margin: 15px 0 15px 0;
-
-    p {
-        color: $buttonColor;
-        margin: 3px 0 3px 0;
-    }
-}
 
 .message-author {
     font-size: 0.8em;
@@ -77,7 +67,7 @@
         margin: 15px 0 15px 0;
     
         p {
-            color: $buttonColor;
+            color: $textColor;
             margin: 3px 0 3px 0;
         }
     }
@@ -105,4 +95,4 @@
     width: 70%;
 }
 
-}}
+}
