@@ -141,9 +141,17 @@ class AppWrapper extends React.Component {
                 <Router history={history}>
                     <div className="main-wrapper background-image">
                         {/* <Header /> */}
+
                         <div className="login-page-wrapper">
+                            <div className="logo-begin-wrapper">
+                                <div className="logo-main-page"></div>
+                                <h1 className="app-description">ROOMMIES</h1>
+                               
+                            </div>
+
                             <Switch>
                                 <div className="login-page-form-wrapper">
+
                                     {this.state.signupopen === false && <div> <h2>Sign in or <span className="link"> <Link to='/signup'> create account</Link></span></h2>
                                     </div>}
                                     <Route exact path='/' render={() => <LoginWrapper

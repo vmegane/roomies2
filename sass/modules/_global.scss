@@ -16,6 +16,30 @@ body {
     background-attachment: fixed;
     height: 100vh;
 }
+.logo-begin-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.logo-main-page {
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/roomies burger-04-05.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-family: $mainFont;
+    font-size: 1.5em;
+}
+.app-description {
+    color: #ef5350;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    font-size: 2.4em;
+    vertical-align: sub;
+    display: flex;
+    align-self: flex-end;
+}
 .main-wrapper {
     height: 100vh;
     display: flex;
