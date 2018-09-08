@@ -1,0 +1,39 @@
+.add-message-button {
+    padding: 15px 0 30px 0;
+}
+
+.post-button {
+    display: block;
+    margin: 17px auto 17px auto;
+    width: 70px;
+}
+
+.add-message-area {
+    height: 100px;
+    width: 100%;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid lightslategrey;
+}
+
+.message-text {
+    margin: 15px 0 15px 0;
+
+    p {
+        color: $buttonColor;
+        margin: 3px 0 3px 0;
+    }
+}
+
+.message-author {
+    font-size: 0.8em;
+}
+
+.message-timestamp {
+    font-size: 0.6em;
+}
+
+.add-message-form {
+    display: block;
+    width: 70%;
+}
