@@ -106,6 +106,7 @@ class AppWrapper extends React.Component {
                                 <Route exact path='/messages' component={Messages} />
                                 <Route exact path='/' render={props => <Homes
                                     {...props}
+                                    updateAllData={this.updateAllData}
                                     user={this.state.userData}
                                     homeData={this.state.homeData}
                                     history={history}
