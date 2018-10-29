@@ -36,5 +36,5 @@ start the server
 ```
 
 ## Authors
-Paulina Opacka (vmegane)
-Justyna Zinkiewicz-Grochot (juzekz)
+* Paulina Opacka (vmegane)
+* Justyna Zinkiewicz-Grochot (juzekz)
